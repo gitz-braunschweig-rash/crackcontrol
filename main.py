@@ -14,14 +14,16 @@ def sliceImage(filename,  offset=0):
     print('height: ', height)
     print('channel:', channels)
 
-    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    h_image, s_image, v_image = cv2.split(hsv_img)
+    #hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    #h_image, s_image, v_image = cv2.split(hsv_img)
 
-    v_image = (255-v_image)
+    #v_image = (255-v_image)
 
-    images  = []
+    v_image = ~img
 
-    slices_size = 1024
+    images = []
+
+    slices_size = 512
     number_of_slices = int ((width-offset)/slices_size)
 
     if(width%slices_size>0):
